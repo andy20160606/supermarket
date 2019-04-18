@@ -4,9 +4,11 @@ package cn.youguang.controller;
 import cn.youguang.entity.Cp;
 import cn.youguang.entity.Cpdd;
 import cn.youguang.entity.User;
+import cn.youguang.entity.Yhhd;
 import cn.youguang.service.CpService;
 import cn.youguang.service.CpddService;
 import cn.youguang.service.UserService;
+import cn.youguang.service.YhhdService;
 import cn.youguang.util.PageInfo;
 import cn.youguang.util.Result;
 import io.swagger.annotations.Api;
@@ -56,6 +58,9 @@ public class CpddController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private YhhdService yhhdService;
 
 
     /**
@@ -126,13 +131,20 @@ public class CpddController {
      */
     @RequestMapping(value = "/add" , method = RequestMethod.POST)
     @ResponseBody
-    public Result add(@ApiParam(name="userId",value="用户ID") @RequestParam Long userId,@ApiParam(name="cpId",value="产品Id")@RequestParam Long cpId,@RequestBody Cpdd cpdd) {
+    public Result add(@ApiParam(name="userId",value="用户ID") @RequestParam Long userId,@ApiParam(name="hdId",value="活動Id") @RequestParam(required = false) Long hdId,@ApiParam(name="cpId",value="产品Id")@RequestParam(required = false) Long cpId,@RequestBody Cpdd cpdd) {
         Result result = new Result();
         try {
             User user = userService.findUserById(userId);
-            Cp cp = cpService.findById(cpId);
             cpdd.setUser(user);
-            cpdd.setCp(cp);
+            if(cpId!=null){
+                Cp cp = cpService.findById(cpId);
+                cpdd.setCp(cp);
+            }
+            if(hdId!=null){
+                Yhhd yhhd = yhhdService.findById(hdId);
+                cpdd.setYhhd(yhhd);
+            }
+            cpdd.setXdsj(new Date());
             cpddService.save(cpdd);
             result.setSuccess(true);
         } catch (Exception e){

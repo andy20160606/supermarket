@@ -100,6 +100,8 @@ public class YhqService {
 		yhq.setJe(yhhd.getJe());
 		yhq.setKsrq(yhhd.getKsrq());
 		yhq.setJsrq(yhhd.getJsrq());
+		yhq.setYhhd(yhhd);
+		yhq.setUser(user);
 		return yhq;
 	}
 }

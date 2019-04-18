@@ -26,6 +26,8 @@ public class Cpdd extends IdEntity {
 
     private String khdz; //客户地址
 
+    private String khsp; //客戶商鋪
+
     private String qtxx; //其他信息
 
     private String ddlx;  //订单类型  产品 转发 会员 定制开发等
@@ -42,6 +44,9 @@ public class Cpdd extends IdEntity {
     @ManyToOne
     @JsonIgnore
     private User user;
+
+    @ManyToOne
+    private Yhhd yhhd;
 
 
     public String getKhxm() {
@@ -116,6 +121,21 @@ public class Cpdd extends IdEntity {
         this.user = user;
     }
 
+    public Yhhd getYhhd() {
+        return yhhd;
+    }
+
+    public void setYhhd(Yhhd yhhd) {
+        this.yhhd = yhhd;
+    }
+
+    public String getKhsp() {
+        return khsp;
+    }
+
+    public void setKhsp(String khsp) {
+        this.khsp = khsp;
+    }
 
     @Override
     public String toString() {

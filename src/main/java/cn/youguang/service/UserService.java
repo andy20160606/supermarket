@@ -32,8 +32,8 @@ public class UserService {
 	 *
 	 * @param user
 	 */
-	public void saveUser(User user) {
-		userDao.save(user);
+	public User saveUser(User user) {
+		return userDao.save(user);
 	}
 
 	public List<User> findUserByUsername(String username) {
@@ -193,4 +193,22 @@ public class UserService {
     public List<User> findByUsertype(int i) {
 		return userDao.findByUsertype(i);
     }
+
+	public User initUserFromWxUser(weixin.popular.bean.user.User user) {
+		List<Organization> organizations =new ArrayList<>();
+		organizations.add(orgDao.findOne(4L));
+		User userdb = new User();
+		userdb.setCity(user.getCity());
+		userdb.setNickname(user.getNickname());
+		userdb.setWxopenid(user.getOpenid());
+		userdb.setProcince(user.getProvince());
+		userdb.setCountry(user.getCountry());
+		userdb.setCreatedate(new Date());
+		userdb.setOrgs(organizations);
+		return userdb;
+	}
+
+	public User findByOpenid(String openid) {
+		return userDao.findByWxopenid(openid);
+	}
 }

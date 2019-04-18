@@ -121,7 +121,6 @@ public class YhqController {
                 result.setMsg("该活动已经参与过，不可重复获得优惠券");
                 return result;
             }
-
             User user = userService.findUserById(userId);
             Yhhd yhhd = yhhdService.findById(yhhdId);
             Yhq yhq = yhqService.initFromYhhdAndUser(yhhd,user);

@@ -9,11 +9,13 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "t_user")
+@Table(name = "t_user",uniqueConstraints = {@UniqueConstraint(columnNames="wxopenid")})
 public class User extends IdEntity {
 
-    @NotBlank
+
     private String loginname;
+
+    @JsonIgnore
     private String loginpass;
     private String username;
     private String usertype; //用户类型
@@ -23,6 +25,19 @@ public class User extends IdEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createdate;
     private String phone;
+
+    @NotBlank
+    private String wxopenid;
+
+
+    private String nickname;
+
+    private String city;
+
+    private String procince;
+
+    private String country;
+
 
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Role> roles;
@@ -134,8 +149,13 @@ public class User extends IdEntity {
         this.orgs = orgs;
     }
 
+    public String getWxopenid() {
+        return wxopenid;
+    }
 
-
+    public void setWxopenid(String wxopenid) {
+        this.wxopenid = wxopenid;
+    }
 
     public String getOrgids() {
         String ret = null;
@@ -160,6 +180,35 @@ public class User extends IdEntity {
     }
 
 
+    public String getNickname() {
+        return nickname;
+    }
 
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getProcince() {
+        return procince;
+    }
+
+    public void setProcince(String procince) {
+        this.procince = procince;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
 }

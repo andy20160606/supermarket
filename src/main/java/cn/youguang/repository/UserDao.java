@@ -47,4 +47,5 @@ public interface UserDao extends JpaRepository<User, Long> {
 
     public List<User> findByUsernameContaining(@Param("username") String sqrname);
 
+    User findByWxopenid(String openid);
 }
