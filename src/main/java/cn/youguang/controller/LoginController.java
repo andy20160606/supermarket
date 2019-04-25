@@ -1,6 +1,9 @@
 package cn.youguang.controller;
 
 
+import cn.youguang.dto.LoginDto;
+import cn.youguang.entity.User;
+import cn.youguang.service.UserService;
 import cn.youguang.util.Result;
 import cn.youguang.util.VerifyCodeUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -12,11 +15,13 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import weixin.popular.api.SnsAPI;
+import weixin.popular.bean.sns.SnsToken;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
@@ -34,6 +39,17 @@ public class LoginController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 
+    @Value("${wx.openid.sign.login}")
+    private String wxsign;
+
+
+    @Value("${wx.appid}")
+    private String appid;
+    @Value("${wx.secret}")
+    private String secret;
+
+    @Autowired
+    private UserService userService;
 
 
     /**
@@ -41,9 +57,9 @@ public class LoginController {
      *
      * @return
      */
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
-        return "redirect:/index";
+        return "login";
     }
 
     /**
@@ -52,10 +68,30 @@ public class LoginController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/index")
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(Model model) {
-        return "/index";
+        return "/Mall/Login";
     }
+
+    /**
+     * GET 登录
+     *
+     * @return
+     */
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @ResponseBody
+    public Result login() {
+//        LOGGER.info("GET请求登录");
+//        if (SecurityUtils.getSubject().isAuthenticated()) {
+//            return "redirect:/index";
+//        }
+        Result result = new Result();
+        result.setSuccess(false);
+        result.setMsg("请进行登录操作");
+
+        return result;
+    }
+
 
     /**
      * GET 登录
@@ -64,7 +100,7 @@ public class LoginController {
      * @param request
      * @return
      */
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/wxlogin", method = RequestMethod.GET)
     public String login(Model model, HttpServletRequest request) {
 //        LOGGER.info("GET请求登录");
 //        if (SecurityUtils.getSubject().isAuthenticated()) {
@@ -72,7 +108,22 @@ public class LoginController {
 //        }
 
 
-        return "/login";
+        return "/Mall/Login";
+    }
+
+
+    @RequestMapping(value = "mylogin", method = RequestMethod.GET)
+    @ResponseBody
+    public Result mylogin(@RequestParam String verifycode, HttpServletRequest httpServletRequest) {
+
+
+        LoginDto loginDto = new LoginDto();
+        loginDto.setLogintype("ptlogin");
+        loginDto.setPassword("root");
+        loginDto.setUsername("root");
+        loginDto.setVerifycode(verifycode);
+        return loginPost(loginDto, httpServletRequest);
+
     }
 
     /**
@@ -86,21 +137,63 @@ public class LoginController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public Result loginPost(String username, String password, HttpServletRequest request, Model model) {
+    @SuppressWarnings(value = "all")
+    public Result loginPost(@RequestBody LoginDto loginDto, HttpServletRequest request) {
+
         LOGGER.info("POST请求登录");
+
+        String username = loginDto.getUsername();
+        String password = loginDto.getPassword();
+        String wxcode = loginDto.getWxcode();
+        String logintype = loginDto.getLogintype();
+        String verifycode = loginDto.getVerifycode();
+
         Result result = new Result();
-        if (StringUtils.isBlank(username)) {
-            result.setMsg("用户名不能为空");
-            return result;
-        }
-        if (StringUtils.isBlank(password)) {
-            result.setMsg("密码不能为空");
-            return result;
-        }
         Subject user = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(username.trim(), password.trim());
-        //UsernamePasswordToken token = new UsernamePasswordToken(username, password);  
-        token.setRememberMe(true);
+        UsernamePasswordToken token = new UsernamePasswordToken();
+        User userdb = new User();
+        if ("wxlogin".equals(logintype.trim())) {
+            SnsToken snsToken = SnsAPI.oauth2AccessToken(appid, secret, wxcode);
+            weixin.popular.bean.user.User wxuser = SnsAPI.userinfo(snsToken.getAccess_token(), snsToken.getOpenid(), "zh_CN");
+            if (wxuser.isSuccess()) {
+                userdb = userService.findByOpenid(wxuser.getOpenid());
+                if (userdb == null) {
+                    userdb = userService.initUserFromWxUser(wxuser);
+                    userdb = userService.saveUser(userdb);
+                }
+                token = new UsernamePasswordToken(wxsign, userdb.getWxopenid());
+                token.setRememberMe(true);
+            } else {
+                result.setMsg("微信获取信息失败");
+                return result;
+            }
+        }
+        if ("ptlogin".equals(logintype)) {
+            if (StringUtils.isBlank(username)) {
+                result.setMsg("用户名不能为空");
+                return result;
+            }
+            if (StringUtils.isBlank(password)) {
+                result.setMsg("密码不能为空");
+                return result;
+            }
+            if (StringUtils.isBlank(verifycode)) {
+                result.setMsg("验证码不能为空");
+                return result;
+            }
+            if (!StringUtils.isBlank(verifycode)) {
+                String verifyCode = (String) request.getSession().getAttribute("verifyCode");
+                if (!verifyCode.equals(verifycode)) {
+                    result.setMsg("验证码错误");
+                    return result;
+                }
+
+            }
+
+            userdb = userService.findUserByLoginName(username);
+            token = new UsernamePasswordToken(username.trim(), password.trim());
+            token.setRememberMe(true);
+        }
         try {
             user.login(token);
         } catch (UnknownAccountException e) {
@@ -121,10 +214,9 @@ public class LoginController {
             return result;
         }
         result.setSuccess(true);
+        result.setObj(userdb);
         return result;
     }
-
-
 
 
     /**
@@ -133,12 +225,13 @@ public class LoginController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/unauth")
-    public String unauth(Model model) {
-        if (SecurityUtils.getSubject().isAuthenticated() == false) {
-            return "redirect:/login";
-        }
-        return "/unauth";
+    @RequestMapping(value = "/unauth", method = RequestMethod.GET)
+    @ResponseBody
+    public Result unauth(Model model) {
+        Result result = new Result();
+        result.setObj("未授权");
+        result.setSuccess(false);
+        return result;
     }
 
 
@@ -148,9 +241,13 @@ public class LoginController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/ioexception")
-    public String ioexception(Model model) {
-        return "/ioexception";
+    @RequestMapping(value = "/ioexception", method = RequestMethod.GET)
+    @ResponseBody
+    public Result ioexception(Model model) {
+        Result result = new Result();
+        result.setObj("io错误");
+        result.setSuccess(false);
+        return result;
     }
 
 
@@ -160,7 +257,7 @@ public class LoginController {
      * @param request
      * @return
      */
-    @RequestMapping(value = "/logout")
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
     @ResponseBody
     public Result logout(HttpServletRequest request) {
         LOGGER.info("登出");
@@ -172,27 +269,12 @@ public class LoginController {
     }
 
 
-    /**
-     * 退出 偷懒写法
-     *
-     * @param request
-     * @return
-     */
-    @RequestMapping(value = "/logout1")
-    public String logout1(HttpServletRequest request) {
-        LOGGER.info("登出");
-        Subject subject = SecurityUtils.getSubject();
-        subject.logout();
-        return "/login";
-    }
-
-
-    @RequestMapping(value = "/verifyCode")
+    @RequestMapping(value = "/verifyCode", method = RequestMethod.GET)
     public void verifyCode(HttpServletRequest request, HttpServletResponse response) {
         String verifyCode = VerifyCodeUtil.generateTextCode(VerifyCodeUtil.TYPE_NUM_ONLY, 4, null);
         System.out.println("verifyCode=" + verifyCode);
         BufferedImage bufferedImage = VerifyCodeUtil.generateImageCode(verifyCode, 90, 30, 10, true, Color.WHITE, Color.BLACK, null);
-
+        request.getSession().setAttribute("verifyCode", verifyCode);
         try {
             ServletOutputStream out = response.getOutputStream();
             ImageIO.write(bufferedImage, "jpg", out);

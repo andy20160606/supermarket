@@ -157,6 +157,9 @@ public class User extends IdEntity {
         this.wxopenid = wxopenid;
     }
 
+
+
+
     public String getOrgids() {
         String ret = null;
         for (Organization organization : orgs) {

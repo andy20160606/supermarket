@@ -1,6 +1,6 @@
 package cn.youguang.util;
 
-import cn.youguang.entity.Constant;
+
 import org.springframework.util.FileCopyUtils;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.multipart.MultipartFile;

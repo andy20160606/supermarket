@@ -10,22 +10,31 @@ import javax.persistence.Table;
 import java.util.List;
 
 /**
- *状态
+ * 状态
  */
 
 
 @Table
 @Entity(name = "t_zt")
-public class Zt extends IdEntity{
+public class Zt extends IdEntity {
 
     private String ztmc; //状态名称
 
 
+    private Integer status; // 0代表 下架 1代表上架
+
 
     @JsonIgnore
-    @ManyToMany(fetch= FetchType.LAZY,mappedBy="zts")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "zts")
     private List<Cp> cps;
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
     public List<Cp> getCps() {
         return cps;

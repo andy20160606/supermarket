@@ -32,7 +32,7 @@ public class HyController {
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:MM:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true)); // true:允许输入空值，false:不能为空值
     }
@@ -55,7 +55,7 @@ public class HyController {
     @ApiOperation(value="分页获取行业信息",notes="pageinfo必须给定nowpage（当前页），pagesize（每页的记录数信息）,sort为排序（默认id，可给可不给）")
     @RequestMapping(value = "datatables",method = RequestMethod.GET)
     @ResponseBody
-    public PageInfo dataGrid(@ApiParam(name="hymc",value="行业名称")@RequestParam(required = false) String hymc, @ModelAttribute PageInfo pageInfo) {
+    public PageInfo dataTables(@ApiParam(name="hymc",value="行业名称")@RequestParam(required = false) String hymc, @ModelAttribute PageInfo pageInfo) {
 
 
         Map<String, Object> condition = new HashMap<String, Object>();
@@ -153,7 +153,7 @@ public class HyController {
             result.setMsg("删除成功！");
             result.setSuccess(true);
         } catch (RuntimeException e) {
-            LOGGER.error("删除用户失败：{}", e);
+            LOGGER.error("删除行业失败：{}", e);
             result.setMsg(e.getMessage());
 
         }

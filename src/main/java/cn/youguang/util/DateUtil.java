@@ -1,6 +1,6 @@
 package cn.youguang.util;
 
- 
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,7 +10,6 @@ import java.util.TimeZone;
 
 import org.apache.commons.lang.StringUtils;
 
- 
 
 /**
  * Description : 日期、时间相关的功能.
@@ -58,75 +57,75 @@ import org.apache.commons.lang.StringUtils;
  * </pre>
  * 기타 자세한 것은 <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>
  * Class API Document 를 참조할것
- * 
+ *
  * @author 양유민 (010-9990-6878, perfectjava94@gmail.com)
  * <pre>
  *  2007. 02. 23 최초작성 by 양유민
  *  2007. 04. 20 default 형식 변경 및 메소드 추가  by 양유민
  *  2007. 05. 02 특정패턴을 가진 날짜 형식을 Date 객체로 바꿀때 TimeZone 영역의 'ZZ'를
  *               해석가능하도록 기능추가 by 양유민
- *  2007. 05. 07 {@link #getDateString(Date, String, String)} 추가 by 양유민 
+ *  2007. 05. 07 {@link #getDateString(Date, String, String)} 추가 by 양유민
  * </pre>
  */
 public class DateUtil {
-	
-	
-	/**
-	 * DATE형의 FORMAT : 
-	 * yyyy-MM-dd'T'HH:mm:ssZ<p>
-	 * 예) 2008-01-05T15:19:21+0900
-	 */
+
+
+    /**
+     * DATE형의 FORMAT :
+     * yyyy-MM-dd'T'HH:mm:ssZ<p>
+     * 예) 2008-01-05T15:19:21+0900
+     */
 //	public static final String FORMAT_DATE_TIME = "EEE, dd MMM yyyy HH:mm:ss Z";
-	public static final String FORMAT_DATE_TIME = "yyyy-MM-dd'T'HH:mm:ss'+08:00'";
-	
-	public static final String PDA_DATE_TIME = "yyyy-MM-dd'T'HH:mm:ssZ";
-	
-	public static final String SEVEN_FORMAT_DATE_TIME = "yyyy-MM-dd'T'HH:mm:ss'+08:00'";
-	
-	public static final String SEVEN_FORMAT_DATE_TIME_NOTCOLON = "yyyy-MM-dd'T'HH:mm:ss'+0800'";
-	
-	public static final String SEVEN_CALENDAR_DATE_TIME = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
-	public static final String SEVEN_CALENDAR_DATE_TIME2 = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
-	
-	public static final String EVENT_FORMAT_DATE_TIME = "yyyy-MM-dd'T'HH:mm:ss'Z'";
-	
-	/**
-	 * DATE형의 FORMAT : &quot;yyyyMMdd&quot;
-	 */
-	public static final String FORMAT_DATE 		 = "yyyyMMdd"; // 일자
-	
-	/**
-	 * DATE형의 FORMAT : &quot;yyyyMM01&quot;
-	 * <br>첫날
-	 */
-	public static final String FORMAT_DATE_FIRST = "yyyyMM01"; // 첫날
-	
-	/**
-	 * DATE형의 FORMAT : &quot;HHmmss&quot;
-	 * <br>시간
-	 */
-	public static final String FORMAT_TIME		 = "HHmmss"; // 시간
-	//Wed, 20 Dec 2006 16:43:43 +0900
-	
-	public static final String SINGLEMAIL_FORMAT = "yyyy-MM-dd HH:mm:ss";
-	
-	public static final String SINGLEMAIL_FORMAT_CURRENT = "HHmm";
-	
-	public static final String SINGLE_APPROVAL_FORMAT = "yyyy-MM-dd HH:mm";
-	
-	public static final String SINGLE_APPROVAL_FORMAT_ANOTHER = "MMM dd, yyyy HH:mm";
-	
-	public static final String SINGLE_APPROVAL_CANCEL = "yyyyMMddHHmmss";
-	
-	public static final String DBSYNC_FORMAT = "yyyy-MM-dd HH:mm:ss";
-	
-	public static final String KOLON_APPROVAL_DATE_FORMAT = "yyyyMMddHHmmss";
-	/**
-	 * 문자열의 값이 일자값인지 검증
-	 *
-	 * @param textDate 일자값을 가진 8자리 문자열 예) '20070223'
-	 * @return 일자값이면 true, 아니면 false
-	 */
+    public static final String FORMAT_DATE_TIME = "yyyy-MM-dd'T'HH:mm:ss'+08:00'";
+
+    public static final String PDA_DATE_TIME = "yyyy-MM-dd'T'HH:mm:ssZ";
+
+    public static final String SEVEN_FORMAT_DATE_TIME = "yyyy-MM-dd'T'HH:mm:ss'+08:00'";
+
+    public static final String SEVEN_FORMAT_DATE_TIME_NOTCOLON = "yyyy-MM-dd'T'HH:mm:ss'+0800'";
+
+    public static final String SEVEN_CALENDAR_DATE_TIME = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+    public static final String SEVEN_CALENDAR_DATE_TIME2 = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+
+    public static final String EVENT_FORMAT_DATE_TIME = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+
+    /**
+     * DATE형의 FORMAT : &quot;yyyyMMdd&quot;
+     */
+    public static final String FORMAT_DATE = "yyyyMMdd"; // 일자
+
+    /**
+     * DATE형의 FORMAT : &quot;yyyyMM01&quot;
+     * <br>첫날
+     */
+    public static final String FORMAT_DATE_FIRST = "yyyyMM01"; // 첫날
+
+    /**
+     * DATE형의 FORMAT : &quot;HHmmss&quot;
+     * <br>시간
+     */
+    public static final String FORMAT_TIME = "HHmmss"; // 시간
+    //Wed, 20 Dec 2006 16:43:43 +0900
+
+    public static final String SINGLEMAIL_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
+    public static final String SINGLEMAIL_FORMAT_CURRENT = "HHmm";
+
+    public static final String SINGLE_APPROVAL_FORMAT = "yyyy-MM-dd HH:mm";
+
+    public static final String SINGLE_APPROVAL_FORMAT_ANOTHER = "MMM dd, yyyy HH:mm";
+
+    public static final String SINGLE_APPROVAL_CANCEL = "yyyyMMddHHmmss";
+
+    public static final String DBSYNC_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
+    public static final String KOLON_APPROVAL_DATE_FORMAT = "yyyyMMddHHmmss";
+    /**
+     * 문자열의 값이 일자값인지 검증
+     *
+     * @param textDate 일자값을 가진 8자리 문자열 예) '20070223'
+     * @return 일자값이면 true, 아니면 false
+     */
 //	public static boolean isDate(String textDate) {
 //		try {
 //			dateCheck(textDate);
@@ -136,10 +135,10 @@ public class DateUtil {
 //		return true;
 //	}
 
-	/**
-	 * 내부적인 Date Value Check용 임
-	 * @param textDate
-	 */
+    /**
+     * 내부적인 Date Value Check용 임
+     * @param textDate
+     */
 //	private static void dateCheck(String textDate) throws Exception {
 //		if (textDate.length() != 8)
 //			throw new Exception("[" + textDate + "] is not date value");
@@ -155,11 +154,11 @@ public class DateUtil {
 //		return;
 //	}
 
-	/**
-	 * 일자값을 가진 8자리 문자열로 Calendar 객체를 생성
-	 * @param textDate 일자값을 가진 8자리 문자열 예) '20070223'
-	 * @return Calendar 객체
-	 */
+    /**
+     * 일자값을 가진 8자리 문자열로 Calendar 객체를 생성
+     * @param textDate 일자값을 가진 8자리 문자열 예) '20070223'
+     * @return Calendar 객체
+     */
 //	public static Calendar getCalendar(String textDate) throws Exception {
 //		//dateCheck(textDate);
 //		int year = Integer.parseInt(textDate.substring(0, 4));
@@ -181,38 +180,39 @@ public class DateUtil {
 //		return cal;
 //	}
 
-	
-	/**
-	 * 표준포맷 문자열을 java.util.Date 로 변환시킴
-	 * <p>
-	 * 2007.04.20. 표준포맷 변경됨(14자리 -> rfc822)
-	 * 
-	 * @param textDate 표준 format 문자열(RFC822)
-	 * @return Date 객체
-	 * @deprecated use {@link #convertRFC822ToDate(String)}
-	 */
+
+    /**
+     * 표준포맷 문자열을 java.util.Date 로 변환시킴
+     * <p>
+     * 2007.04.20. 표준포맷 변경됨(14자리 -> rfc822)
+     *
+     * @param textDate 표준 format 문자열(RFC822)
+     * @return Date 객체
+     * @deprecated use {@link #convertRFC822ToDate(String)}
+     */
 //	public static Date getDate(String textDate) throws Exception{
 //		return convertRFC822ToDate(textDate);
 //	}
 
-	/**
-	 * 주어진 Date 객체를 이용하여 주어진 패턴 날짜형의 문자열을 구함.
-	 * @param date 원하는 일자의 Date 객체
-	 * @param pattern 원하는 일자 패턴
-	 * @return 주어진 패턴의 일자
-	 */
-	public static String getDateString(Date date, String pattern){
-		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-		return sdf.format(date);
-	}
-	
-	/**
-	 * 국내는 현재와 동일 
-	 * @param date
-	 * @param pattern
-	 * @param mailhost
-	 * @return
-	 */
+    /**
+     * 주어진 Date 객체를 이용하여 주어진 패턴 날짜형의 문자열을 구함.
+     *
+     * @param date    원하는 일자의 Date 객체
+     * @param pattern 원하는 일자 패턴
+     * @return 주어진 패턴의 일자
+     */
+    public static String getDateString(Date date, String pattern) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        return sdf.format(date);
+    }
+
+    /**
+     * 국내는 현재와 동일
+     * @param date
+     * @param pattern
+     * @param mailhost
+     * @return
+     */
 //	public static String getDateStringByMailhost(Date date, String pattern, String mailhost){
 //		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
 //		
@@ -226,54 +226,56 @@ public class DateUtil {
 //		}
 //		return sdf.format(date);
 //	}
-	
-	/**
-	 * 주어진 Date 객체를 이용하여 주어진 패턴 날짜형의 문자열을 언어설정에 맞게 구함.
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @param date 원하는 일자의 Date 객체
-	 * @param pattern pattern 원하는 일자 패턴
-	 * @param language 포맷할 데이터의 언어
-	 * @return
-	 */
-	public static String getDateString(Date date, String pattern, String language) {
-		SimpleDateFormat sdf = new SimpleDateFormat(pattern, new Locale(language));	
-		return sdf.format(date);
-	}
 
-	/**
-	 * 주어진 Date 객체를 이용하여 기본날짜형의 문자열을 구함.
-	 * @param date 원하는 일자의 Date 객체
-	 * @return 주어진 패턴의 일자
-	 */
-	public static String getDateString(Date date) {
-		return getDateString(date, FORMAT_DATE);
-	}
-	
-	/**
-	 * 결재, 임직원조회에서 사용하는 포맷
-	 * @return
-	 */
-	public static String getPDADefaultDateString() {
-		return getDateString(new Date(), PDA_DATE_TIME);
-	}
-	
-	/**
-	 * 세븐 일정 인터페이스에서 사용하는 포맷
-	 */
-	public static String getSevenCalendarDateString(){
-		return getDateString(new Date(), SEVEN_CALENDAR_DATE_TIME);
-	}
+    /**
+     * 주어진 Date 객체를 이용하여 주어진 패턴 날짜형의 문자열을 언어설정에 맞게 구함.
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @param date     원하는 일자의 Date 객체
+     * @param pattern  pattern 원하는 일자 패턴
+     * @param language 포맷할 데이터의 언어
+     * @return
+     */
+    public static String getDateString(Date date, String pattern, String language) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern, new Locale(language));
+        return sdf.format(date);
+    }
 
-	/**
-	 * 주어진 일자를 이용하여 주어진 패턴 날짜형의 문자열을 구함.
-	 * @param textDate 일자값을 가진 8자리 문자열 예) '20070223'
-	 * @param pattern 원하는 일자 패턴
-	 * @return 주어진 패턴의 일자
-	 */
+    /**
+     * 주어진 Date 객체를 이용하여 기본날짜형의 문자열을 구함.
+     *
+     * @param date 원하는 일자의 Date 객체
+     * @return 주어진 패턴의 일자
+     */
+    public static String getDateString(Date date) {
+        return getDateString(date, FORMAT_DATE);
+    }
+
+    /**
+     * 결재, 임직원조회에서 사용하는 포맷
+     *
+     * @return
+     */
+    public static String getPDADefaultDateString() {
+        return getDateString(new Date(), PDA_DATE_TIME);
+    }
+
+    /**
+     * 세븐 일정 인터페이스에서 사용하는 포맷
+     */
+    public static String getSevenCalendarDateString() {
+        return getDateString(new Date(), SEVEN_CALENDAR_DATE_TIME);
+    }
+
+    /**
+     * 주어진 일자를 이용하여 주어진 패턴 날짜형의 문자열을 구함.
+     * @param textDate 일자값을 가진 8자리 문자열 예) '20070223'
+     * @param pattern 원하는 일자 패턴
+     * @return 주어진 패턴의 일자
+     */
 //	public static String getDateString(String textDate, String pattern)  throws Exception{
 //		String date = null;
 //		if (textDate != null && !textDate.equals("")) {
@@ -284,93 +286,94 @@ public class DateUtil {
 //		return date;
 //	}
 
-	/**
-	 * 주어진 패턴 날짜형 시스템일자를 구함
-	 * @param pattern 원하는 일자 패턴
-	 * @return 시스템 일자
-	 */
-	public static String getToday(String pattern){
-		return getDateString(new Date(), pattern);
-	}
+    /**
+     * 주어진 패턴 날짜형 시스템일자를 구함
+     *
+     * @param pattern 원하는 일자 패턴
+     * @return 시스템 일자
+     */
+    public static String getToday(String pattern) {
+        return getDateString(new Date(), pattern);
+    }
 
-	/**
-	 * 기본패턴 날짜형 시스템일자시간를 구함
-	 * @return 기본형의 시스템 일자시간
-	 */
+    /**
+     * 기본패턴 날짜형 시스템일자시간를 구함
+     * @return 기본형의 시스템 일자시간
+     */
 //	public static String getDateTimeSystem(){
 //		return getToday(DateUtil.FORMAT_DATE_TIME);
 //	}
 
-	/**
-	 * 기본패턴('DateUtil.FORMAT_TIME') 날짜형 시스템시간을 구함
-	 * @return 기본형('DateUtil.FORMAT_TIME')의 시스템 시간
-	 */
+    /**
+     * 기본패턴('DateUtil.FORMAT_TIME') 날짜형 시스템시간을 구함
+     * @return 기본형(' DateUtil.FORMAT_TIME ')의 시스템 시간
+     */
 //	public static String getTimeSystem(){
 //		return getToday(DateUtil.FORMAT_TIME);
 //	}
 
 
-	/**
-	 * 현재 시스템의 Date 객체를 구함.
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @return
-	 */
-	public static Date getNow(){
-		return new Date();
-	}
-	
-	/**
-	 * 지정한 분리자를 이용한 시스템일자를 구함
-	 * @param delmt 원하는 분리자 문자 예) ':', '/' ...
-	 * @return 분리자가 삽입된 시스템 시간
-	 */
+    /**
+     * 현재 시스템의 Date 객체를 구함.
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @return
+     */
+    public static Date getNow() {
+        return new Date();
+    }
+
+    /**
+     * 지정한 분리자를 이용한 시스템일자를 구함
+     * @param delmt 원하는 분리자 문자 예) ':', '/' ...
+     * @return 분리자가 삽입된 시스템 시간
+     */
 //	public static String getTime(char delmt){
 //		return getToday("HH" + delmt + "mm" + delmt + "ss");
 //	}
 
-	/**
-	 * 지정된 일자로 부터 일정기간 이후의 일자를 구함
-	 * @param fromDate 시작일자
-	 * @param termDays 원하는 기간
-	 * @param both 양편넣기 여부
-	 * @deprecated 사용안함
-	 * @return 일정기간 이후의 일자 
-	 */
+    /**
+     * 지정된 일자로 부터 일정기간 이후의 일자를 구함
+     * @param fromDate 시작일자
+     * @param termDays 원하는 기간
+     * @param both 양편넣기 여부
+     * @deprecated 사용안함
+     * @return 일정기간 이후의 일자
+     */
 //	public static String getToDate(String fromDate, int termDays, boolean both) throws Exception{
 //		if (both) termDays = termDays - 1;
 //		Calendar cal = getCalendar(fromDate);
 //		cal.add(Calendar.DATE, termDays);
 //		return getDateString(cal.getTime(), DateUtil.FORMAT_DATE);
 //	}
-	
-	/**
-	 * 지정된 개월수로 부터 일정기간의 달을 얻어온다.
-	 * @param fromDate 현재 일자
-	 * @param termMonths 원하는 기간
-	 * @param both 양편넣기 여부
-	 * @return 일정기간 이후의 개월 ('DateUtil.FORMAT_DATE')
-	 * @deprecated 사용안함
-	 * @throws Exception
-	 */
+
+    /**
+     * 지정된 개월수로 부터 일정기간의 달을 얻어온다.
+     * @param fromDate 현재 일자
+     * @param termMonths 원하는 기간
+     * @param both 양편넣기 여부
+     * @return 일정기간 이후의 개월 ('DateUtil.FORMAT_DATE')
+     * @deprecated 사용안함
+     * @throws Exception
+     */
 //	public static String getToMonth(String fromDate, int termMonths, boolean both) throws Exception {
 //		if (both) termMonths = termMonths - 1;
 //		Calendar cal = getCalendar(fromDate);
 //		cal.add(Calendar.MONTH, termMonths);
 //		return getDateString(cal.getTime(), DateUtil.FORMAT_DATE);
 //	}
-	
-	/**
-	 * 해당되는 월의 마지막 일자를 얻어온다.
-	 * @param date 현재 일자
-	 * @return 현재일자의 마지막 월 일자
-	 * @deprecated 사용안함
-	 * @throws Exception
-	 * 
-	 */
+
+    /**
+     * 해당되는 월의 마지막 일자를 얻어온다.
+     * @param date 현재 일자
+     * @return 현재일자의 마지막 월 일자
+     * @deprecated 사용안함
+     * @throws Exception
+     *
+     */
 //	public static String getLastDayOfMonth(String date) throws Exception {
 //		Calendar cal = getCalendar(date);
 //		cal.roll(Calendar.MONTH, true);
@@ -383,25 +386,25 @@ public class DateUtil {
 //		
 //	}
 
-	/**
-	 * 지정된 일자로 부터 일정기간 이후의 일자를 한편넣기방식으로 구함.
-	 * @param fromDate 시작일자
-	 * @param termDays 원하는 기간
-	 * @return 일정기간 이후의 일자 (DateUtil.FORMAT_DATE)
-	 * @deprecated 사용안함
-	 */
+    /**
+     * 지정된 일자로 부터 일정기간 이후의 일자를 한편넣기방식으로 구함.
+     * @param fromDate 시작일자
+     * @param termDays 원하는 기간
+     * @return 일정기간 이후의 일자 (DateUtil.FORMAT_DATE)
+     * @deprecated 사용안함
+     */
 //	public static String getToDate(String fromDate, int termDays) throws Exception{
 //		return getToDate(fromDate, termDays, false);
 //	}
 
-	/**
-	 * 시작일로부터 종료일까지의 일수를 구함
-	 * @param fromDate 시작일자
-	 * @param toDate 종료일자
-	 * @param both 양편넣기 여부
-	 * @return 시작일자로 부터 종료일까지의 일수
-	 * @deprecated 사용안함
-	 */
+    /**
+     * 시작일로부터 종료일까지의 일수를 구함
+     * @param fromDate 시작일자
+     * @param toDate 종료일자
+     * @param both 양편넣기 여부
+     * @return 시작일자로 부터 종료일까지의 일수
+     * @deprecated 사용안함
+     */
 //	public static int getDiffDays(Date fromDate, Date toDate, boolean both){
 //		long diffDays = toDate.getTime() - fromDate.getTime();
 //		long days = diffDays / (24 * 60 * 60 * 1000);
@@ -411,53 +414,53 @@ public class DateUtil {
 //		return new Long(days).intValue();
 //	}
 
-	/**
-	 * 시작일로부터 종료일까지의 일수를 한편넣기로 계산함.
-	 * @param fromDate 시작일자
-	 * @param toDate 종료일자
-	 * @return 시작일자로 부터 종료일까지의 일수
-	 * @deprecated 사용안함
-	 */
+    /**
+     * 시작일로부터 종료일까지의 일수를 한편넣기로 계산함.
+     * @param fromDate 시작일자
+     * @param toDate 종료일자
+     * @return 시작일자로 부터 종료일까지의 일수
+     * @deprecated 사용안함
+     */
 //	public static int getDiffDays(Date fromDate, Date toDate){
 //		return getDiffDays(fromDate, toDate, false);
 //	}
 
-	/**
-	 * 시작일로부터 종료일까지의 일수를 구함
-	 * @param fromDate 시작일자
-	 * @param toDate 종료일자
-	 * @param both 양편넣기 여부
-	 * @return 시작일자로 부터 종료일까지의 일수
-	 * @deprecated 사용안함
-	 */
+    /**
+     * 시작일로부터 종료일까지의 일수를 구함
+     * @param fromDate 시작일자
+     * @param toDate 종료일자
+     * @param both 양편넣기 여부
+     * @return 시작일자로 부터 종료일까지의 일수
+     * @deprecated 사용안함
+     */
 //	public static int getDiffDays(String fromDate, String toDate, boolean both) throws Exception{
 //		return getDiffDays(getDate(fromDate), getDate(toDate), both);
 //	}
 
-	/**
-	 * 시작일로부터 종료일까지의 일수를 한편넣기로 계산함.
-	 * @param fromDate 시작일자
-	 * @param toDate 종료일자
-	 * @return 시작일자로 부터 종료일까지의 일수
-	 * @deprecated 사용안함
-	 */
+    /**
+     * 시작일로부터 종료일까지의 일수를 한편넣기로 계산함.
+     * @param fromDate 시작일자
+     * @param toDate 종료일자
+     * @return 시작일자로 부터 종료일까지의 일수
+     * @deprecated 사용안함
+     */
 //	public static int getDiffDays(String fromDate, String toDate) throws Exception{
 //		return getDiffDays(getDate(fromDate), getDate(toDate), false);
 //	}
-	
-	/**
-	 * 날짜+시간을 java.sql.Timestamp으로 변환
-	 * @param date 시작일자
-	 * @return java.sql.Timestamp
-	 * @deprecated DBMgr addParameter(Object) 에서 구현되어 불필요
-	 */
+
+    /**
+     * 날짜+시간을 java.sql.Timestamp으로 변환
+     * @param date 시작일자
+     * @return java.sql.Timestamp
+     * @deprecated DBMgr addParameter(Object) 에서 구현되어 불필요
+     */
 //	public static java.sql.Timestamp toTimestamp(Date date){
 //		return (null == date ? null: new java.sql.Timestamp(date.getTime()));
 //	}
-	
-	/**
-	 * 
-	 */
+
+    /**
+     *
+     */
 //	public static Date convertAdapterToDate(String dateStr){
 //		Date date = null;
 //		if (checkDateFormat(dateStr, SEVEN_CALENDAR_DATE_TIME)){
@@ -483,360 +486,358 @@ public class DateUtil {
 //		}
 //		return date;
 //	}
-	
-	/**
-	 * RFC822 format(&quot;EEE, dd MMM yyyy HH:mm:ss z&quot;)을 
-	 * java.util.Date 객체로 만들어 리턴
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : 문자열은 반드시 영문이어야 함
-	 * </pre>
-	 *
-	 * @param formatRFC822
-	 * @return 형식에 맞지않는 데이터가 들어오면 현재 날짜를 리턴한다.
-	 * @see #convertRFC822ToDate(String, String)
-	 */
-	public static Date convertRFC822ToDate(String formatRFC822) {
-		return convertRFC822ToDate(formatRFC822, "en");
-	}
-	
-	/**
-	 * RFC822 format(&quot;EEE, dd MMM yyyy HH:mm:ss z&quot;)을 
-	 * java.util.Date 객체로 만들어 리턴
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @param formatRFC822 RFC 822 Date & Time Pattern
-	 * @return 변환된 Date 객체
-	 */
-	public static Date convertRFC822ToDate(String formatRFC822, String language) {
-		SimpleDateFormat sdf = new SimpleDateFormat(FORMAT_DATE_TIME
-				, new Locale(language));
-		
-		Date date = null;
-		try {
-			date = sdf.parse(formatRFC822);
-		} catch (Exception e) {
-			date = new Date(); // today
-		}
-		
-		return date;
-	}
-	
-	/**
-	 * 특정 패턴으로 포맷된 데이터를 default 형식으로 변환시킨다.<br>
-	 * 만일 format이 안맞으면 시스템의 날짜를 리턴한다.
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : pattern에 TimeZone을 위해 'ZZ'가 패턴의 끝에 들어온 경우,
-	 *                입력된 날짜형식의 문자열에서 타임존 부분의 콜론을 없애고 처리한다.
-	 *                (예) textDate: 2007-04-16T11:23:00<b>+09:00</b>
-	 *                     pattern: yyyy-MM-dd'T'HH:mm:ss<b>ZZ</b>
-	 * </pre>
-	 *
-	 * @param textDate pattern이 적용된 날짜 문자열
-	 * @param pattern 포맷된 데이터의 패턴
-	 * @param language 포맷된 데이터의 언어
-	 * @return default 형식
-	 * @since 2007.04.20.
-	 */
-	public static String convertToDefault(String textDate, String pattern, String language) {
-		SimpleDateFormat sdf = new SimpleDateFormat(pattern, new Locale(language));		
-		try {
-			if (pattern.endsWith("ZZ")) { // +09:00
-				textDate = changeTextDate(textDate, pattern);
-			}			
-			Date date = sdf.parse(textDate);
-			return convertDateToDefault(date);
-		} catch (Exception e) {
-			return convertDateToDefault(new Date());
-		}		
-	}
-	
-	/**
-	 * 특정 패턴으로 포맷된 데이터를 {@link Date} 객체로 변환시킴<br>
-	 * 만일 format이 안맞으면 시스템의 날짜를 리턴한다.
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : pattern에 TimeZone을 위해 'ZZ'가 패턴의 끝에 들어온 경우,
-	 *                입력된 날짜형식의 문자열에서 타임존 부분의 콜론을 없애고 처리한다.
-	 *                (예) textDate: 2007-04-16T11:23:00<b>+09:00</b>
-	 *                     pattern: yyyy-MM-dd'T'HH:mm:ss<b>ZZ</b>
-	 * </pre>
-	 *
-	 * @param textDate pattern이 적용된 날짜 문자열
-	 * @param pattern 포맷된 데이터의 패턴
-	 * @param language 포맷된 데이터의 언어
-	 * @return java.util.Date 객체
-	 */
-	public static Date convertToDate(String textDate, String pattern
-			, String language) {
-		SimpleDateFormat sdf = new SimpleDateFormat(pattern);		
-		try {
-			textDate = changeTextDate(textDate, pattern);
-			return sdf.parse(textDate);
-		} catch (Exception e) {
-			return new Date();
-		}
-	}
-	
-	/**
-	 * 특정 패턴으로 포맷된 데이터를 {@link Date} 객체로 변환시킴<p>
-	 * 만일 format이 안맞으면 defaultDate로 리턴을 한다.
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : pattern에 TimeZone을 위해 'ZZ'가 패턴의 끝에 들어온 경우,
-	 *                입력된 날짜형식의 문자열에서 타임존 부분의 콜론을 없애고 처리한다.
-	 *                (예) textDate: 2007-04-16T11:23:00<b>+09:00</b>
-	 *                     pattern: yyyy-MM-dd'T'HH:mm:ss<b>ZZ</b>        
-	 * </pre>
-	 *
-	 * @param textDate pattern이 적용된 날짜 문자열
-	 * @param pattern 포맷된 데이터의 패턴
-	 * @param language 포맷된 데이터의 언어
-	 * @param defaultDate format이 안맞을경우 리턴할 데이터
-	 * @return
-	 */
-	public static Date convertToDate(String textDate, String pattern
-			, String language, Date defaultDate) {
-		SimpleDateFormat sdf = new SimpleDateFormat(pattern, new Locale(language));		
-		try {
-			textDate = changeTextDate(textDate, pattern);
-			return sdf.parse(textDate);
-		} catch (Exception e) {
-			return defaultDate;
-		}
-	}	
-	
-	/**
-	 * 
-	 * @param textDate
-	 * @param pattern
-	 * @return
-	 * @deprecated
-	 */
-	public static String convertToString(String textDate, String pattern) {
-		SimpleDateFormat sdf = new SimpleDateFormat(pattern);		
-		try {
-			textDate = changeTextDate(textDate, pattern);
-			Date date = sdf.parse(textDate);
-			return getDateString(date, pattern);
-			
-		} catch (Exception e) {
-			return getDefaultDateString();
-		}
-		
-	}
-	
-	public static String convertToString(String textDate, String fromPattern, 
-			String toPattern) {
-		SimpleDateFormat sdf = new SimpleDateFormat(fromPattern);
-		Date date = null;
-		String result = null;
-		try {
-			textDate = changeTextDate(textDate, fromPattern);
-			date = sdf.parse(textDate);
-			sdf = new SimpleDateFormat(toPattern);
-			result = sdf.format(date);
-		} catch (Exception e) {
-			result = null;
-		}
-		return result;
-	}
-	/**
-	 * 
-	 * @param textDate
-	 * @param pattern
-	 * @param locale
-	 * @deprecated
-	 * @return
-	 */
-	public static String convertToString(String textDate, String pattern, Locale locale) {
-		SimpleDateFormat sdf = new SimpleDateFormat(pattern, locale);		
-		try {
-			textDate = changeTextDate(textDate, pattern);
-			Date date = sdf.parse(textDate);
-			return getDateString(date, pattern);
-			
-		} catch (Exception e) {
-			return getDefaultDateString();
-		}
-		
-	}
-	
-	/**
-	 * TimeZone format에 콜론(':')이 들어온 경우,<br>
-	 * JAVA가 기본적으로 지원하지 않으므로 콜론을 없애준다.
-	 * <pre>
-	 * Dependencies : 특정 패턴을 가진 날짜형식의 문자열을 {@link Date} 형식으로 변환할 때,<br>
-	 *                자바에서 지원되지 않는 형식을 처리하기 위함
-	 * Side Effects : 맨 마지막의 콜론을 없앤다.
-	 * </pre>
-	 *
-	 * @param textDate TimeZone영역에 콜론이 포함된 문자열
-	 * @return 맨 마지막의 콜론을 뺀 문자열을 리턴
-	 */
-	public static String changeTextDate(String textDate, String pattern) {
-		String result = null;
-		if (pattern.endsWith("Z")){
-			//zone 구분자인 + ,- 문자의 인덱스를 찾는다
-			int zoneIndex = textDate.lastIndexOf("+");
-			if (zoneIndex == -1){
-				zoneIndex = textDate.lastIndexOf("-");
-			}
-			if (zoneIndex != -1){
-				//+09:00 or +0900
-				String zoneValue = textDate.substring(zoneIndex);
-				int zoneColonIndex = zoneValue.lastIndexOf(':');
-				if (zoneColonIndex != -1){
-					int colonIndex = textDate.lastIndexOf(":");
-					result = textDate.substring(0, colonIndex) + textDate.substring(colonIndex + 1);		
-				}else{
-					result = textDate;
-				}
-			}else{
-				result = textDate;
-			}
-		}else{
-			result = textDate;
-		}
-		return result;
-	}
-	
-	
-	/**
-	 * 입력 문자열이 ISO 8601로 포맷된 데이터인지 확인한다.
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @param dateStr
-	 * @return 형식에 맞으면 true, 그렇지 않으면 false를 리턴
-	 * @since 2007.04.20.
-	 */
-	public static boolean checkDefaultFormat(String dateStr) {
-		SimpleDateFormat sdf = new SimpleDateFormat(FORMAT_DATE_TIME
-				, new Locale("en"));
-		try {
-			sdf.parse(dateStr);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-	
-	/**
-	 * 입력 문자열이 해당 pattern으로 된 데이터인지 확인한다.
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @param textDate pattern이 적용된 날짜 문자열
-	 * @param pattern 포맷된 데이터의 패턴
-	 * @param language 포맷된 데이터의 언어
-	 * @return 형식에 맞으면 true, 그렇지 않으면 false를 리턴
-	 */
-	public static boolean checkDateFormat(String textDate, String pattern
-			, Locale locale) {
-		SimpleDateFormat sdf = new SimpleDateFormat(pattern, locale);
-		try {
-			textDate = changeTextDate(textDate, pattern);
-			sdf.setLenient(false);
-			sdf.parse(textDate);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-	
-	public static boolean checkDateFormat(String textDate, String pattern) {
-		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-		try {
-			textDate = changeTextDate(textDate, pattern);
-			sdf.setLenient(true);
-			sdf.parse(textDate);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}	
 
-	
-	
-	/**
-	 * 입력된 Date를 RFC822 문자열로 변환시킴
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 * 2007.04.20 변경.
-	 * 
-	 * @param date
-	 * @return
-	 * @deprecated  use {@link #convertDateToDefault(Date)}
-	 */
+    /**
+     * RFC822 format(&quot;EEE, dd MMM yyyy HH:mm:ss z&quot;)을
+     * java.util.Date 객체로 만들어 리턴
+     * <pre>
+     * Dependencies : None
+     * Side Effects : 문자열은 반드시 영문이어야 함
+     * </pre>
+     *
+     * @param formatRFC822
+     * @return 형식에 맞지않는 데이터가 들어오면 현재 날짜를 리턴한다.
+     * @see #convertRFC822ToDate(String, String)
+     */
+    public static Date convertRFC822ToDate(String formatRFC822) {
+        return convertRFC822ToDate(formatRFC822, "en");
+    }
+
+    /**
+     * RFC822 format(&quot;EEE, dd MMM yyyy HH:mm:ss z&quot;)을
+     * java.util.Date 객체로 만들어 리턴
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @param formatRFC822 RFC 822 Date & Time Pattern
+     * @return 변환된 Date 객체
+     */
+    public static Date convertRFC822ToDate(String formatRFC822, String language) {
+        SimpleDateFormat sdf = new SimpleDateFormat(FORMAT_DATE_TIME
+                , new Locale(language));
+
+        Date date = null;
+        try {
+            date = sdf.parse(formatRFC822);
+        } catch (Exception e) {
+            date = new Date(); // today
+        }
+
+        return date;
+    }
+
+    /**
+     * 특정 패턴으로 포맷된 데이터를 default 형식으로 변환시킨다.<br>
+     * 만일 format이 안맞으면 시스템의 날짜를 리턴한다.
+     * <pre>
+     * Dependencies : None
+     * Side Effects : pattern에 TimeZone을 위해 'ZZ'가 패턴의 끝에 들어온 경우,
+     *                입력된 날짜형식의 문자열에서 타임존 부분의 콜론을 없애고 처리한다.
+     *                (예) textDate: 2007-04-16T11:23:00<b>+09:00</b>
+     *                     pattern: yyyy-MM-dd'T'HH:mm:ss<b>ZZ</b>
+     * </pre>
+     *
+     * @param textDate pattern이 적용된 날짜 문자열
+     * @param pattern  포맷된 데이터의 패턴
+     * @param language 포맷된 데이터의 언어
+     * @return default 형식
+     * @since 2007.04.20.
+     */
+    public static String convertToDefault(String textDate, String pattern, String language) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern, new Locale(language));
+        try {
+            if (pattern.endsWith("ZZ")) { // +09:00
+                textDate = changeTextDate(textDate, pattern);
+            }
+            Date date = sdf.parse(textDate);
+            return convertDateToDefault(date);
+        } catch (Exception e) {
+            return convertDateToDefault(new Date());
+        }
+    }
+
+    /**
+     * 특정 패턴으로 포맷된 데이터를 {@link Date} 객체로 변환시킴<br>
+     * 만일 format이 안맞으면 시스템의 날짜를 리턴한다.
+     * <pre>
+     * Dependencies : None
+     * Side Effects : pattern에 TimeZone을 위해 'ZZ'가 패턴의 끝에 들어온 경우,
+     *                입력된 날짜형식의 문자열에서 타임존 부분의 콜론을 없애고 처리한다.
+     *                (예) textDate: 2007-04-16T11:23:00<b>+09:00</b>
+     *                     pattern: yyyy-MM-dd'T'HH:mm:ss<b>ZZ</b>
+     * </pre>
+     *
+     * @param textDate pattern이 적용된 날짜 문자열
+     * @param pattern  포맷된 데이터의 패턴
+     * @param language 포맷된 데이터의 언어
+     * @return java.util.Date 객체
+     */
+    public static Date convertToDate(String textDate, String pattern
+            , String language) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        try {
+            textDate = changeTextDate(textDate, pattern);
+            return sdf.parse(textDate);
+        } catch (Exception e) {
+            return new Date();
+        }
+    }
+
+    /**
+     * 특정 패턴으로 포맷된 데이터를 {@link Date} 객체로 변환시킴<p>
+     * 만일 format이 안맞으면 defaultDate로 리턴을 한다.
+     * <pre>
+     * Dependencies : None
+     * Side Effects : pattern에 TimeZone을 위해 'ZZ'가 패턴의 끝에 들어온 경우,
+     *                입력된 날짜형식의 문자열에서 타임존 부분의 콜론을 없애고 처리한다.
+     *                (예) textDate: 2007-04-16T11:23:00<b>+09:00</b>
+     *                     pattern: yyyy-MM-dd'T'HH:mm:ss<b>ZZ</b>
+     * </pre>
+     *
+     * @param textDate    pattern이 적용된 날짜 문자열
+     * @param pattern     포맷된 데이터의 패턴
+     * @param language    포맷된 데이터의 언어
+     * @param defaultDate format이 안맞을경우 리턴할 데이터
+     * @return
+     */
+    public static Date convertToDate(String textDate, String pattern
+            , String language, Date defaultDate) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern, new Locale(language));
+        try {
+            textDate = changeTextDate(textDate, pattern);
+            return sdf.parse(textDate);
+        } catch (Exception e) {
+            return defaultDate;
+        }
+    }
+
+    /**
+     * @param textDate
+     * @param pattern
+     * @return
+     * @deprecated
+     */
+    public static String convertToString(String textDate, String pattern) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        try {
+            textDate = changeTextDate(textDate, pattern);
+            Date date = sdf.parse(textDate);
+            return getDateString(date, pattern);
+
+        } catch (Exception e) {
+            return getDefaultDateString();
+        }
+
+    }
+
+    public static String convertToString(String textDate, String fromPattern,
+                                         String toPattern) {
+        SimpleDateFormat sdf = new SimpleDateFormat(fromPattern);
+        Date date = null;
+        String result = null;
+        try {
+            textDate = changeTextDate(textDate, fromPattern);
+            date = sdf.parse(textDate);
+            sdf = new SimpleDateFormat(toPattern);
+            result = sdf.format(date);
+        } catch (Exception e) {
+            result = null;
+        }
+        return result;
+    }
+
+    /**
+     * @param textDate
+     * @param pattern
+     * @param locale
+     * @return
+     * @deprecated
+     */
+    public static String convertToString(String textDate, String pattern, Locale locale) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern, locale);
+        try {
+            textDate = changeTextDate(textDate, pattern);
+            Date date = sdf.parse(textDate);
+            return getDateString(date, pattern);
+
+        } catch (Exception e) {
+            return getDefaultDateString();
+        }
+
+    }
+
+    /**
+     * TimeZone format에 콜론(':')이 들어온 경우,<br>
+     * JAVA가 기본적으로 지원하지 않으므로 콜론을 없애준다.
+     * <pre>
+     * Dependencies : 특정 패턴을 가진 날짜형식의 문자열을 {@link Date} 형식으로 변환할 때,<br>
+     *                자바에서 지원되지 않는 형식을 처리하기 위함
+     * Side Effects : 맨 마지막의 콜론을 없앤다.
+     * </pre>
+     *
+     * @param textDate TimeZone영역에 콜론이 포함된 문자열
+     * @return 맨 마지막의 콜론을 뺀 문자열을 리턴
+     */
+    public static String changeTextDate(String textDate, String pattern) {
+        String result = null;
+        if (pattern.endsWith("Z")) {
+            //zone 구분자인 + ,- 문자의 인덱스를 찾는다
+            int zoneIndex = textDate.lastIndexOf("+");
+            if (zoneIndex == -1) {
+                zoneIndex = textDate.lastIndexOf("-");
+            }
+            if (zoneIndex != -1) {
+                //+09:00 or +0900
+                String zoneValue = textDate.substring(zoneIndex);
+                int zoneColonIndex = zoneValue.lastIndexOf(':');
+                if (zoneColonIndex != -1) {
+                    int colonIndex = textDate.lastIndexOf(":");
+                    result = textDate.substring(0, colonIndex) + textDate.substring(colonIndex + 1);
+                } else {
+                    result = textDate;
+                }
+            } else {
+                result = textDate;
+            }
+        } else {
+            result = textDate;
+        }
+        return result;
+    }
+
+
+    /**
+     * 입력 문자열이 ISO 8601로 포맷된 데이터인지 확인한다.
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @param dateStr
+     * @return 형식에 맞으면 true, 그렇지 않으면 false를 리턴
+     * @since 2007.04.20.
+     */
+    public static boolean checkDefaultFormat(String dateStr) {
+        SimpleDateFormat sdf = new SimpleDateFormat(FORMAT_DATE_TIME
+                , new Locale("en"));
+        try {
+            sdf.parse(dateStr);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * 입력 문자열이 해당 pattern으로 된 데이터인지 확인한다.
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @param textDate pattern이 적용된 날짜 문자열
+     * @param pattern  포맷된 데이터의 패턴
+     * @return 형식에 맞으면 true, 그렇지 않으면 false를 리턴
+     */
+    public static boolean checkDateFormat(String textDate, String pattern
+            , Locale locale) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern, locale);
+        try {
+            textDate = changeTextDate(textDate, pattern);
+            sdf.setLenient(false);
+            sdf.parse(textDate);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean checkDateFormat(String textDate, String pattern) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        try {
+            textDate = changeTextDate(textDate, pattern);
+            sdf.setLenient(true);
+            sdf.parse(textDate);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
+    /**
+     * 입력된 Date를 RFC822 문자열로 변환시킴
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     * 2007.04.20 변경.
+     *
+     * @param date
+     * @return
+     * @deprecated use {@link #convertDateToDefault(Date)}
+     */
 //	public static String convertDateToGMT(Date date){
 //		return convertDateToDefault(date);
 //	}
-	
-	/**
-	 * 입력된 Date를 디폴트 포맷인 RFC822 문자열로 변환시킴
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : 항상 영문으로 결과가 리턴됨
-	 * </pre>
-	 *
-	 * @param date 변환할 java.util.Date 객체
-	 * @return 포맷된 데이터
-	 */
-	public static String convertDateToDefault(Date date) {
-		SimpleDateFormat sdf = new SimpleDateFormat(SINGLEMAIL_FORMAT
-				, new Locale("en"));
-		return sdf.format(date);
-	}
-	
-	/**
-	 * 입력된 long 형의 Date를 디폴트 포맷으로 변환시킴
-	 * @param dateTime
-	 * @return
-	 */
-	public static String convertDateToDefault(long dateTime) {
-		SimpleDateFormat sdf = new SimpleDateFormat(FORMAT_DATE_TIME
-				, new Locale("en"));
-		return sdf.format(new Date(dateTime));
-	}
-	
-	/**
-	 * 입력된 Date를 GMT 시간에 해당하는 pattern으로 변경시켜 리턴
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @param date 변환할 java.util.Date 객체
-	 * @param pattern 변경을 원하는 패턴
-	 * @return pattern으로 변경된 GMT 문자열 
-	 */
-	public static String convertToGMT(Date date, String pattern) {
-		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-		sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-		return sdf.format(date);
-	}
-	
-	/**
-	 * GMT시간을 로컬타임으로 반환한다
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 * @deprecated
-	 * @param gmt
-	 * @return
-	 */
+
+    /**
+     * 입력된 Date를 디폴트 포맷인 RFC822 문자열로 변환시킴
+     * <pre>
+     * Dependencies : None
+     * Side Effects : 항상 영문으로 결과가 리턴됨
+     * </pre>
+     *
+     * @param date 변환할 java.util.Date 객체
+     * @return 포맷된 데이터
+     */
+    public static String convertDateToDefault(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat(SINGLEMAIL_FORMAT
+                , new Locale("en"));
+        return sdf.format(date);
+    }
+
+    /**
+     * 입력된 long 형의 Date를 디폴트 포맷으로 변환시킴
+     *
+     * @param dateTime
+     * @return
+     */
+    public static String convertDateToDefault(long dateTime) {
+        SimpleDateFormat sdf = new SimpleDateFormat(FORMAT_DATE_TIME
+                , new Locale("en"));
+        return sdf.format(new Date(dateTime));
+    }
+
+    /**
+     * 입력된 Date를 GMT 시간에 해당하는 pattern으로 변경시켜 리턴
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @param date    변환할 java.util.Date 객체
+     * @param pattern 변경을 원하는 패턴
+     * @return pattern으로 변경된 GMT 문자열
+     */
+    public static String convertToGMT(Date date, String pattern) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+        return sdf.format(date);
+    }
+
+    /**
+     * GMT시간을 로컬타임으로 반환한다
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     * @deprecated
+     * @param gmt
+     * @return
+     */
 //	public static Date convertGMTtoLocalTime(String gmt){
 //		java.util.Date local = null;
 //		
@@ -851,90 +852,90 @@ public class DateUtil {
 //		
 //		return local;
 //	}
-	
-	/**
-	 * 현재 시스템의 시간을 디폴트 포맷으로 변경시킴
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @return 14자리 format
-	 * @see #FORMAT_DATE_TIME
-	 * @deprecated use {@link #getDefaultDateString()}
-	 */
+
+    /**
+     * 현재 시스템의 시간을 디폴트 포맷으로 변경시킴
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @return 14자리 format
+     * @see #FORMAT_DATE_TIME
+     * @deprecated use {@link #getDefaultDateString()}
+     */
 //	public static String getGMTString() {
 //		return convertDateToDefault(new Date());
 //	}
-	
-	/**
-	 * 현재 시스템의 시간을 디폴트 포맷으로 변경시킴
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @return
-	 * @since 2007.04.20
-	 */
-	public static String getDefaultDateString() {
-		return convertDateToDefault(new Date());
-	}
-	
-	/**
-	 * 인자로 받은 Date 디폴트 포맷으로 변경시킴
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @return
-	 * @since 2007.04.20
-	 */
-	public static String getDefaultDateString(Date date) {
-		return convertDateToDefault(date);
-	}
-	
-	/**
-	 * 현재 시스템의 시각중 시(hour) 정보를 24시간 형식으로 리턴한다.
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @return 현재 시(current hour)
-	 */
-	public static int getCurrentHour() {
-		Calendar calendar = Calendar.getInstance();		
-		return calendar.get(Calendar.HOUR_OF_DAY);
-	}
-	
-	/**
-	 * 현재 시스템의 시각중 분(minute) 정보를 리턴한다.
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @return 현재 분(current minute)
-	 */
-	public static int getCurrentMinute() {
-		Calendar calendar = Calendar.getInstance();		
-		return calendar.get(Calendar.MINUTE);		
-	}
-	
-	/**
-	 * 현재 날짜를 기준으로 amount만큼 날짜를 더하거나 뺀다.
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @param amount 더하거나 차감할 일수
-	 * @return 값이 음수(minus)이면 현재보다 이전의 날짜를,<br>
-	 *                   양수이면 현재보다 이후의 날짜를 리턴
-	 */
-	public static Date addDate(int amount) {
+
+    /**
+     * 현재 시스템의 시간을 디폴트 포맷으로 변경시킴
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @return
+     * @since 2007.04.20
+     */
+    public static String getDefaultDateString() {
+        return convertDateToDefault(new Date());
+    }
+
+    /**
+     * 인자로 받은 Date 디폴트 포맷으로 변경시킴
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @return
+     * @since 2007.04.20
+     */
+    public static String getDefaultDateString(Date date) {
+        return convertDateToDefault(date);
+    }
+
+    /**
+     * 현재 시스템의 시각중 시(hour) 정보를 24시간 형식으로 리턴한다.
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @return 현재 시(current hour)
+     */
+    public static int getCurrentHour() {
+        Calendar calendar = Calendar.getInstance();
+        return calendar.get(Calendar.HOUR_OF_DAY);
+    }
+
+    /**
+     * 현재 시스템의 시각중 분(minute) 정보를 리턴한다.
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @return 현재 분(current minute)
+     */
+    public static int getCurrentMinute() {
+        Calendar calendar = Calendar.getInstance();
+        return calendar.get(Calendar.MINUTE);
+    }
+
+    /**
+     * 현재 날짜를 기준으로 amount만큼 날짜를 더하거나 뺀다.
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @param amount 더하거나 차감할 일수
+     * @return 값이 음수(minus)이면 현재보다 이전의 날짜를,<br>
+     * 양수이면 현재보다 이후의 날짜를 리턴
+     */
+    public static Date addDate(int amount) {
 //		Calendar calendar = Calendar.getInstance();	
 //		calendar.add(Calendar.DAY_OF_MONTH, amount);
 //		if (amount <= 0) {
@@ -947,136 +948,137 @@ public class DateUtil {
 //			calendar.set(Calendar.SECOND, 59);		
 //		}
 //		return calendar.getTime();
-		return DateUtil.addDate(null, amount);
-	}
-	
-	public static Date addDate(Date date, int amount) {
-		Calendar calendar = Calendar.getInstance();	
-		if (date != null) {
-			calendar.setTime(date);
-		}
-		calendar.add(Calendar.DAY_OF_MONTH, amount);
-		if (amount <= 0) {
-			calendar.set(Calendar.HOUR_OF_DAY, 0);
-			calendar.set(Calendar.MINUTE, 0);
-			calendar.set(Calendar.SECOND, 0);
-			calendar.set(Calendar.MILLISECOND, 0);
-		} else {
-			calendar.set(Calendar.HOUR_OF_DAY, 23);
-			calendar.set(Calendar.MINUTE, 59);
-			calendar.set(Calendar.SECOND, 59);
-			calendar.set(Calendar.MILLISECOND, 999);
-		}
-		return calendar.getTime();		
-	}
-	
-	/**
-	 * 입력된 Date 객체의 시간을 23시 59분 59초로 맞춘다.
-	 * <pre>
-	 * Dependencies : None
-	 * Side Effects : None
-	 * </pre>
-	 *
-	 * @param date 변경하고자 하는 Date 객체
-	 * @return 입력된 Date 객체의 시간을 23시 59분 59초로 바꾸어 리턴
-	 */
-	public static Date getLastTime(Date date) {
-		Calendar calendar = Calendar.getInstance();	
-		calendar.setTime(date);
-		calendar.set(Calendar.HOUR_OF_DAY, 23);
-		calendar.set(Calendar.MINUTE, 59);
-		calendar.set(Calendar.SECOND, 59);	
-		calendar.set(Calendar.MILLISECOND, 999);	
-		return calendar.getTime();
-	}
-	
-	/**
-	 * 주어진 날짜 구간을 입력된 days만큼씩 배열에 담아 리턴한다.
-	 * <pre>
-	 * Dependencies : 2차원 두번째 길이는 항상 2이다.(from and to)
-	 * Side Effects : toDate가 fromDate보다 크다는 조건 체크안함.
-	 * </pre>
-	 *
-	 * @param fromDate 시작날짜
-	 * @param toDate 끝날짜
-	 * @param days 나눌 일수
-	 * @return 주어진 구간을 days만큼 Date의 2차원 배열에 담아 리턴한다.<br>
-	 */
-	public static Date[][] devideRange(Date fromDate, Date toDate, int days) {
-		int diffDays = DateUtil.diffDays(fromDate, toDate, true);
-		int size = (int)diffDays / days;
-		if (diffDays % days > 0 || size == 0) {
-			size++;
-		} 
-		
-		Date tempDate = fromDate;
-		Date [][]dates = new Date[size][2];
-		for (int i = 0; ; i++) {
-			if (i == 0) {
-				dates[i][0] = tempDate;
-				tempDate = DateUtil.addDate(tempDate, days - 1);
-			} else {
-				Calendar cal = Calendar.getInstance();
-				cal.setTime(tempDate);
-				cal.add(Calendar.MILLISECOND, 1);
-				dates[i][0] = cal.getTime();
-				tempDate = DateUtil.addDate(tempDate, days);
-			}
-			
-			if (tempDate.getTime() < toDate.getTime()) {
-				dates[i][1] = tempDate;
-			} else {
-				dates[i][1] = toDate;
-				break;
-			}
-		} 
-		
-		return dates;
-	}
-	
-	/**
-	 * 한편넣기/양편넣기 계산.
-	 *
-	 * @param fromDate 시작일짜
-	 * @param toDate 끝날짜.
-	 * @param both 양편넣기
-	 * @return 주어진 구간의 날짜가 몇일인지 계산
-	 */
-	public static int diffDays(Date fromDate, Date toDate, boolean both) {
-		long diff = toDate.getTime() - fromDate.getTime();
-		int diffDays = (int)(diff / (24 * 60 * 60 * 1000));
-		return both ? (diffDays + 1) : diffDays;
-	}
+        return DateUtil.addDate(null, amount);
+    }
 
-	/**
-	 * timezone 값을 리턴한다. 
-	 * @param dateStr
-	 * @return	GMT+9 형태 디폴트 값: GMT+9 
-	 */
-	public static String getTimeZone(String dateStr) {
-		String timeZone = "GMT+9";
-		if (checkDefaultFormat(dateStr)){
-			timeZone = "GMT" + dateStr.substring(19, 22);
-		}
-		return timeZone;
-	}
-	
-	public static String getLocalDate(String dateStr) {
-		if (StringUtils.isNotEmpty(dateStr)) {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-			
-			Calendar c = Calendar.getInstance();
-			try {
-				c.setTime(sdf.parse(dateStr));
-			} catch (ParseException e) {
-				return "";
- 			}
-			c.add(Calendar.HOUR, 8);
-			String date = sdf.format(c.getTime()).replace("T", " ");
-			return date;
-		}
-		return "";
-	}
+    public static Date addDate(Date date, int amount) {
+        Calendar calendar = Calendar.getInstance();
+        if (date != null) {
+            calendar.setTime(date);
+        }
+        calendar.add(Calendar.DAY_OF_MONTH, amount);
+        if (amount <= 0) {
+            calendar.set(Calendar.HOUR_OF_DAY, 0);
+            calendar.set(Calendar.MINUTE, 0);
+            calendar.set(Calendar.SECOND, 0);
+            calendar.set(Calendar.MILLISECOND, 0);
+        } else {
+            calendar.set(Calendar.HOUR_OF_DAY, 23);
+            calendar.set(Calendar.MINUTE, 59);
+            calendar.set(Calendar.SECOND, 59);
+            calendar.set(Calendar.MILLISECOND, 999);
+        }
+        return calendar.getTime();
+    }
+
+    /**
+     * 입력된 Date 객체의 시간을 23시 59분 59초로 맞춘다.
+     * <pre>
+     * Dependencies : None
+     * Side Effects : None
+     * </pre>
+     *
+     * @param date 변경하고자 하는 Date 객체
+     * @return 입력된 Date 객체의 시간을 23시 59분 59초로 바꾸어 리턴
+     */
+    public static Date getLastTime(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        calendar.set(Calendar.MILLISECOND, 999);
+        return calendar.getTime();
+    }
+
+    /**
+     * 주어진 날짜 구간을 입력된 days만큼씩 배열에 담아 리턴한다.
+     * <pre>
+     * Dependencies : 2차원 두번째 길이는 항상 2이다.(from and to)
+     * Side Effects : toDate가 fromDate보다 크다는 조건 체크안함.
+     * </pre>
+     *
+     * @param fromDate 시작날짜
+     * @param toDate   끝날짜
+     * @param days     나눌 일수
+     * @return 주어진 구간을 days만큼 Date의 2차원 배열에 담아 리턴한다.<br>
+     */
+    public static Date[][] devideRange(Date fromDate, Date toDate, int days) {
+        int diffDays = DateUtil.diffDays(fromDate, toDate, true);
+        int size = (int) diffDays / days;
+        if (diffDays % days > 0 || size == 0) {
+            size++;
+        }
+
+        Date tempDate = fromDate;
+        Date[][] dates = new Date[size][2];
+        for (int i = 0; ; i++) {
+            if (i == 0) {
+                dates[i][0] = tempDate;
+                tempDate = DateUtil.addDate(tempDate, days - 1);
+            } else {
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(tempDate);
+                cal.add(Calendar.MILLISECOND, 1);
+                dates[i][0] = cal.getTime();
+                tempDate = DateUtil.addDate(tempDate, days);
+            }
+
+            if (tempDate.getTime() < toDate.getTime()) {
+                dates[i][1] = tempDate;
+            } else {
+                dates[i][1] = toDate;
+                break;
+            }
+        }
+
+        return dates;
+    }
+
+    /**
+     * 한편넣기/양편넣기 계산.
+     *
+     * @param fromDate 시작일짜
+     * @param toDate   끝날짜.
+     * @param both     양편넣기
+     * @return 주어진 구간의 날짜가 몇일인지 계산
+     */
+    public static int diffDays(Date fromDate, Date toDate, boolean both) {
+        long diff = toDate.getTime() - fromDate.getTime();
+        int diffDays = (int) (diff / (24 * 60 * 60 * 1000));
+        return both ? (diffDays + 1) : diffDays;
+    }
+
+    /**
+     * timezone 값을 리턴한다.
+     *
+     * @param dateStr
+     * @return GMT+9 형태 디폴트 값: GMT+9
+     */
+    public static String getTimeZone(String dateStr) {
+        String timeZone = "GMT+9";
+        if (checkDefaultFormat(dateStr)) {
+            timeZone = "GMT" + dateStr.substring(19, 22);
+        }
+        return timeZone;
+    }
+
+    public static String getLocalDate(String dateStr) {
+        if (StringUtils.isNotEmpty(dateStr)) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+
+            Calendar c = Calendar.getInstance();
+            try {
+                c.setTime(sdf.parse(dateStr));
+            } catch (ParseException e) {
+                return "";
+            }
+            c.add(Calendar.HOUR, 8);
+            String date = sdf.format(c.getTime()).replace("T", " ");
+            return date;
+        }
+        return "";
+    }
 
 //	public static String getTodayStartByMailhost(String today, String mailhost){
 //		try {
@@ -1095,4 +1097,91 @@ public class DateUtil {
 //			return today+"T00:00:00+09:00";
 //		}
 //	}
+
+    // 获得当天0点时间
+    public static Date getTimesmorning() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+
+
+    }
+
+    // 获得昨天0点时间
+    public static Date getYesterdaymorning() {
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(getTimesmorning().getTime() - 3600 * 24 * 1000);
+        return cal.getTime();
+    }
+
+
+    // 获得当天23.59.59点时间
+    public static Date getTimesnight() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 23);
+        cal.set(Calendar.SECOND, 59);
+        cal.set(Calendar.MINUTE, 59);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
+
+    // 获得本月第一天0点时间
+    public static Date getTimesMonthmorning(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONDAY), cal.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
+        cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
+        return cal.getTime();
+    }
+
+    // 获得本月最后一天23点59分59秒时间
+    public static Date getTimesMonthnight(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONDAY), cal.get(Calendar.DAY_OF_MONTH), 23, 59, 59);
+        cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+        return cal.getTime();
+    }
+
+
+    /**
+     * 获取距离参数date number个月的 第一天
+     *
+     * @param number
+     * @return
+     */
+    public static Date addByMonth(Date date, int number) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.MONTH, number);
+        c.set(Calendar.DAY_OF_MONTH, 1);
+        return c.getTime();
+    }
+
+
+    // 获得年份
+    public static int getYear(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.YEAR);
+    }
+
+    // 获得月份
+    public static int getMonth(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.MONTH);
+    }
+
+    // 获得几号
+    public static int getDay(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.DAY_OF_MONTH);
+    }
+
+
 }

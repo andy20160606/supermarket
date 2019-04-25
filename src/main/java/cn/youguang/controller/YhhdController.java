@@ -32,10 +32,9 @@ import java.util.Map;
 @RequestMapping("/yhhd")
 @Api(value = "优惠活动Controller",tags = {"优惠活动操作接口"})
 public class YhhdController {
-
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:MM:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true)); // true:允许输入空值，false:不能为空值
     }

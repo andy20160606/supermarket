@@ -14,4 +14,6 @@ public interface ZtDao extends JpaRepository<Zt, Long> {
     Page<Zt> findByZtmcLike(String ztmc, Pageable pageable);
 
     List<Zt> findByZtmcLike(String ztmc);
+
+    List<Zt> findByIdIn(List<Long> zts);
 }

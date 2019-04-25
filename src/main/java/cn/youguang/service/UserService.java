@@ -204,6 +204,7 @@ public class UserService {
 		userdb.setProcince(user.getProvince());
 		userdb.setCountry(user.getCountry());
 		userdb.setCreatedate(new Date());
+		userdb.setStatus(0);
 		userdb.setOrgs(organizations);
 		return userdb;
 	}

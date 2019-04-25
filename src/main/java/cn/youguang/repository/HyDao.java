@@ -14,4 +14,6 @@ public interface HyDao extends JpaRepository<Hy, Long> {
     Page<Hy> findByHymc(String hymc, Pageable pageable);
 
     List<Hy> findByHymcLike(String hymc);
+
+    List<Hy> findByIdIn(List<Long> ids);
 }

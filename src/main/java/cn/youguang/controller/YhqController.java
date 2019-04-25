@@ -13,6 +13,7 @@ import cn.youguang.util.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class YhqController {
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:MM:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true)); // true:允许输入空值，false:不能为空值
     }
@@ -84,6 +85,7 @@ public class YhqController {
     @ResponseBody
     public Result list(@ApiParam(name="userId",value="用户ID")@RequestParam(required = false) Long userId){
 
+
         Result result = new Result();
         Map<String, Object> condition = new HashMap<String, Object>();
         List<Yhq> yhqs;
@@ -109,6 +111,7 @@ public class YhqController {
      *
      * @return
      */
+  //  @RequiresPermissions(value = "/yhq/add")
     @RequestMapping(value = "/add" , method = RequestMethod.POST)
     @ResponseBody
     public Result add(@RequestParam Long userId,@RequestParam Long yhhdId) {

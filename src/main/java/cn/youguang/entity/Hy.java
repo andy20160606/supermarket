@@ -26,6 +26,8 @@ public class Hy extends IdEntity{
 
     private String hybq;//行业标签
 
+    private Integer status; //0代表 下架 1代表上架
+
     @JsonIgnore
     @ManyToMany(fetch= FetchType.LAZY,mappedBy="hys")
     private List<Cp> cps;
@@ -63,6 +65,13 @@ public class Hy extends IdEntity{
         this.cps = cps;
     }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
     @Override
     public String toString() {
